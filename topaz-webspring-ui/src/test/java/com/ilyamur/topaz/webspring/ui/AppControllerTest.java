@@ -1,6 +1,5 @@
 package com.ilyamur.topaz.webspring.ui;
 
-import com.ilyamur.topaz.webspring.ui.AppConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,9 +33,16 @@ public class AppControllerTest {
     }
 
     @Test
-    public void indexPageShouldDisplayOk() throws Exception {
+    public void indexShouldDisplayOk() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("ok"));
+    }
+
+    @Test
+    public void greetShouldDisplayGreeting() throws Exception {
+        mockMvc.perform(get("/greet?name=John"))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string("Hello, John!"));
     }
 }

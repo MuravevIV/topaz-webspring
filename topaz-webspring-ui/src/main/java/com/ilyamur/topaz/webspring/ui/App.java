@@ -11,6 +11,8 @@ import javax.servlet.ServletRegistration;
 
 /**
  * Application initializer.
+ *
+ * @author Ilya_Muravyev
  */
 public class App implements WebApplicationInitializer {
 
@@ -20,6 +22,7 @@ public class App implements WebApplicationInitializer {
      * @param servletContext servlet context
      * @throws ServletException if initialization went wrong
      */
+    @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(AppConfiguration.class);

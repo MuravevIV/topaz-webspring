@@ -3,8 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>topaz-webspring-ui</artifactId>
-    <version>${parent.version}</version>
-    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
 
     <name>topaz-webspring-ui</name>
     <url>http://maven.apache.org</url>
@@ -17,32 +16,55 @@
 
     <properties>
         <main.basedir>${project.parent.basedir}</main.basedir>
-        <spring.version>4.2.3.RELEASE</spring.version>
-        <jetty.version>9.0.6.v20130930</jetty.version>
     </properties>
 
-    <build>
+    <profiles>
 
-        <plugins>
+        <profile>
+            <id>runWebserver</id>
 
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
-                <configuration>
-                    <httpConnector>
-                        <port>8080</port>
-                        <host>localhost</host>
-                    </httpConnector>
-                    <scanIntervalSeconds>5</scanIntervalSeconds>
-                </configuration>
-            </plugin>
+            <build>
 
-        </plugins>
+                <plugins>
 
-    </build>
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                        <configuration>
+                            <httpConnector>
+                                <port>8080</port>
+                                <host>localhost</host>
+                            </httpConnector>
+                            <scanIntervalSeconds>5</scanIntervalSeconds>
+                            <jvmArgs>-agentlib:jdwp=transport=dt_socket,address=127.0.0.1:5005,suspend=y,server=n</jvmArgs>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>install</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+
+            </build>
+
+        </profile>
+
+    </profiles>
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.ilyamur</groupId>
+            <artifactId>topaz-webspring-core</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
