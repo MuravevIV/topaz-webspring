@@ -1,8 +1,8 @@
 package com.ilyamur.topaz.webspring.core.model.impl;
 
-import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 /**
  * PoliteGreeterImpl tests.

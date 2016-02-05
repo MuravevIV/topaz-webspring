@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Ilya_Muravyev
  */
 @Controller
-public class AppController {
+public class ApplicationController {
 
     @Autowired
     private Greeter greeter;
