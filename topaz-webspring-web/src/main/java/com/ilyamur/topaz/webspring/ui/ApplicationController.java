@@ -40,4 +40,14 @@ public class ApplicationController {
     public String greet(@RequestParam String name) {
         return greeter.greet(name);
     }
+
+    /**
+     * Handle thymeleaf test page loading.
+     *
+     * @return thymeleaf test template name
+     */
+    @RequestMapping(value = "/thymeleaf_test")
+    public String thymeleafTest() {
+        return "thymeleaf_test";
+    }
 }

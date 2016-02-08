@@ -2,6 +2,7 @@ package com.ilyamur.topaz.webspring.ui;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -44,5 +45,12 @@ public class ApplicationControllerTest {
         mockMvc.perform(get("/greet?name=John"))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Hello, John!"));
+    }
+
+    @Test
+    public void thymeleafTestShouldReferenceView() throws Exception {
+        mockMvc.perform(get("/thymeleaf_test"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("thymeleaf_test"));
     }
 }
