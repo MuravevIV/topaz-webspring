@@ -33,7 +33,7 @@
     <profiles>
 
         <profile>
-            <id>runWebserver</id>
+            <id>runWebApplication</id>
             <build>
                 <plugins>
 
@@ -65,8 +65,7 @@
         <dependency>
             <groupId>com.ilyamur</groupId>
             <artifactId>topaz-webspring-core</artifactId>
-            <version>${project.parent.version}</version>
-            <scope>compile</scope>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
