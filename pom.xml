@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>topaz-webspring-ui</module>
         <module>topaz-webspring-core</module>
+        <module>topaz-webspring-web</module>
     </modules>
 
     <properties>
